@@ -1,5 +1,5 @@
 
-class Money {
+class Camera {
     constructor(x, y, end) {
       this.x = x;
       this.y = y;
@@ -8,17 +8,17 @@ class Money {
     }
   
     display() {
-      // fill('green');
+      // fill('white');
       // rect(this.x, this.y, 100, 20);
       imageMode(CENTER);
-      image(bill, this.x, this.y, 100, 50);
+      image(camera, this.x, this.y, 100, 50);
     }
   
     update() {
       if (this.isFalling) {
         this.y++;
-        if (this.y > this.end- 20) {
-          this.y = this.end- 20;
+        if (this.y > this.end-20) {
+          this.y = this.end-20;
           this.isFalling = false;
         }
       }
