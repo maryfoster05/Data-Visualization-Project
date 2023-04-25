@@ -8,8 +8,6 @@ class Books {
     }
   
     display() {
-      // fill('yellow');
-      // rect(this.x, this.y, 100, 20);
       imageMode(CENTER);
       image(book, this.x, this.y, 100, 50);
     }

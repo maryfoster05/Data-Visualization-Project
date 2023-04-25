@@ -8,8 +8,6 @@ class Money {
     }
   
     display() {
-      // fill('green');
-      // rect(this.x, this.y, 100, 20);
       imageMode(CENTER);
       image(bill, this.x, this.y, 100, 50);
     }

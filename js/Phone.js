@@ -1,5 +1,5 @@
 
-class Camera {
+class Phone {
     constructor(x, y, end) {
       this.x = x;
       this.y = y;
@@ -8,10 +8,8 @@ class Camera {
     }
   
     display() {
-      // fill('white');
-      // rect(this.x, this.y, 100, 20);
       imageMode(CENTER);
-      image(camera, this.x, this.y, 100, 50);
+      image(phone, this.x, this.y, 100, 50);
     }
   
     update() {
