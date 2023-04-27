@@ -1,30 +1,35 @@
 let sel;
 let cnv;
 let table;
-let book;
-let bill;
-let phone;
+let bookF;
+let bookM;
+let billF;
+let billM;
+let phoneF;
+let phoneM;
 let moneyStack;
 let moneyStacks = [];
 let phoneStack;
 let phoneStacks = [];
 let booksStack;
 let booksStacks = [];
+let currentComparison = "Salary Comparison";
 
 function preload() {
   table = loadTable("data/final_category_by_year_df.csv", 'csv', 'header');
-  book = loadImage("assets/book.png");
-  bill = loadImage("assets/bill.png");
-  phone = loadImage("assets/phone.png");
+  bookF = loadImage("assets/bookF.png");
+  bookM = loadImage("assets/bookM.png");
+  billF = loadImage("assets/billF.png");
+  billM = loadImage("assets/billM.png");
+  phoneF = loadImage("assets/phoneF.png");
+  phoneM = loadImage("assets/phoneM.png");
 }
 
 function setup() {
   cnv = createCanvas(windowWidth, 400);
   cnv.parent("myP5");
 
-  cat = "Salary Comparison"
-  moneyStacks = [];
-
+  // Salary Comparison
   for (let i = 0; i < 3; i++) {
     let mens  = table.getColumn(1)[i];
     let womens  = table.getColumn(2)[i];
@@ -33,19 +38,16 @@ function setup() {
     moneyStacks.push(new MoneyStack(i * 200 + 160, 0, womens/20000));
   }
 
-  cat = "Recruiting Expenses Comparison"
-  phoneStacks = [];
-
+  // Recruiting Expenses Comparison
   for (let i = 0; i < 3; i++) {
     let mens  = table.getColumn(3)[i];
     let womens  = table.getColumn(4)[i];
 
-    phoneStacks.push(new PhoneStack(i * 200 + 70, 0, mens/20000));
-    phoneStacks.push(new PhoneStack(i * 200 + 160, 0, womens/20000));
+    phoneStacks.push(new PhoneStack(i * 200 + 70, 0, mens/20000, mens));
+    phoneStacks.push(new PhoneStack(i * 200 + 160, 0, womens/20000, womens));
   }
 
-  cat = "Aid Comparison"
-  booksStacks = []
+  // Aid Comparison
   for (let i = 0; i < 3; i++) {
     let mens  = table.getColumn(5)[i];
     let womens  = table.getColumn(6)[i];
@@ -56,14 +58,22 @@ function setup() {
 
   initializeSelection();
   windowResized();
-
 }
 
 function draw() {
   background('white');
-  
   mySelectEvent()
+  xAxis();
+}
 
+function xAxis() {
+  if (currentComparison == "Salary Comparison") {
+
+  }
+
+  else {
+
+  }
 }
 
 function salaryComparison(){
@@ -93,8 +103,7 @@ function aidComparison(){
   }
 }
 
-/////////////////////
-// DROPDOWN
+// Dropdown
 function initializeSelection() {
   sel = createSelect();
   sel.parent("dataDropdown");
@@ -105,7 +114,7 @@ function initializeSelection() {
 }
 
 function mySelectEvent() {
-  let currentComparison = sel.value();
+  currentComparison = sel.value();
 
   if (currentComparison == "Salary Comparison") {
     salaryComparison()
@@ -117,7 +126,6 @@ function mySelectEvent() {
      aidComparison()
   } 
 }
-/////////////////////
 
 // Chat GPT
 function windowResized() {

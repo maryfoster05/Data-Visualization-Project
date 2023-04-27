@@ -1,15 +1,21 @@
 
 class Phone {
-    constructor(x, y, end) {
+    constructor(x, y, end, gender) {
       this.x = x;
       this.y = y;
       this.end = end;
       this.isFalling = true;
+      this.gender = gender;
     }
   
     display() {
       imageMode(CENTER);
-      image(phone, this.x, this.y, 100, 50);
+      if (this.gender = 'mens'){
+        image(phoneM, this.x, this.y, 100, 50);
+      }
+      else{
+        image(phoneF, this.x, this.y, 100, 50);
+      }
     }
   
     update() {

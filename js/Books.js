@@ -9,7 +9,7 @@ class Books {
   
     display() {
       imageMode(CENTER);
-      image(book, this.x, this.y, 100, 50);
+      image(bookM, this.x, this.y, 100, 50);
     }
   
     update() {

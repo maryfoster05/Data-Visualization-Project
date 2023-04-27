@@ -9,7 +9,7 @@ class Money {
   
     display() {
       imageMode(CENTER);
-      image(bill, this.x, this.y, 100, 50);
+      image(billM, this.x, this.y, 100, 50);
     }
   
     update() {
