@@ -1,12 +1,6 @@
 let sel;
 let cnv;
 let table;
-let bookF;
-let bookM;
-let billF;
-let billM;
-let phoneF;
-let phoneM;
 let moneyStack;
 let moneyStacks = [];
 let phoneStack;
@@ -34,8 +28,8 @@ function setup() {
     let mens  = table.getColumn(1)[i];
     let womens  = table.getColumn(2)[i];
 
-    moneyStacks.push(new MoneyStack(i * 200 + 70, 0, mens/20000));
-    moneyStacks.push(new MoneyStack(i * 200 + 160, 0, womens/20000));
+    moneyStacks.push(new MoneyStack(i * 200 + 70, 0, mens/20000, "mens"));
+    moneyStacks.push(new MoneyStack(i * 200 + 160, 0, womens/20000, "womens"));
   }
 
   // Recruiting Expenses Comparison
@@ -43,8 +37,8 @@ function setup() {
     let mens  = table.getColumn(3)[i];
     let womens  = table.getColumn(4)[i];
 
-    phoneStacks.push(new PhoneStack(i * 200 + 70, 0, mens/20000, mens));
-    phoneStacks.push(new PhoneStack(i * 200 + 160, 0, womens/20000, womens));
+    phoneStacks.push(new PhoneStack(i * 200 + 70, 0, mens/20000, "mens"));
+    phoneStacks.push(new PhoneStack(i * 200 + 160, 0, womens/20000, "womens"));
   }
 
   // Aid Comparison
@@ -52,28 +46,20 @@ function setup() {
     let mens  = table.getColumn(5)[i];
     let womens  = table.getColumn(6)[i];
 
-    booksStacks.push(new BooksStack(i * 200 + 70, 0, mens/20000));
-    booksStacks.push(new BooksStack(i * 200 + 160, 0, womens/20000));
+    booksStacks.push(new BooksStack(i * 200 + 70, 0, mens/100000, "mens"));
+    booksStacks.push(new BooksStack(i * 200 + 160, 0, womens/100000, "womens"));
   }
-
+  
   initializeSelection();
   windowResized();
 }
 
 function draw() {
   background('white');
-  mySelectEvent()
-  xAxis();
-}
-
-function xAxis() {
-  if (currentComparison == "Salary Comparison") {
-
-  }
-
-  else {
-
-  }
+  mySelectEvent();
+  // xAxis();
+  // yAxis();
+  
 }
 
 function salaryComparison(){

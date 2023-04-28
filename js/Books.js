@@ -1,24 +1,17 @@
 
-class Books {
-    constructor(x, y, end) {
-      this.x = x;
-      this.y = y;
-      this.end = end;
-      this.isFalling = true;
+class Books extends Money {
+    constructor(x, y, end, gender) {
+      super(x, y, end, gender);
     }
   
     display() {
       imageMode(CENTER);
-      image(bookM, this.x, this.y, 100, 50);
-    }
-  
-    update() {
-      if (this.isFalling) {
-        this.y++;
-        if (this.y > this.end-20) {
-          this.y = this.end-20;
-          this.isFalling = false;
-        }
+      if (this.gender == 'mens'){     
+        image(bookM, this.x, this.y, 100, 50);
+      }
+      else{
+        image(bookF, this.x, this.y, 100, 50);
       }
     }
+
   }

@@ -10,26 +10,26 @@ h1 {
   text-align: center;
 }
 
-/* for auto-resizing d3 */
-/* .svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 50%;
-    vertical-align: top;
-    overflow: hidden;
+#x2019 {
+  text-indent: 90px;
 }
-.svg-content {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-} */
+
+#x2020{
+  /* text-align-last: right; */
+  text-indent: 190px;
+}
+
+#x2021{
+  /* text-align-last: right; */
+  text-indent: 300px;
+}
+
+
 
 /* for auto resizing p5 */
 #myP5-container {
     position: relative;
-    width: 100%;
+    width: relative;
     padding-bottom: 50%;
     height: 0;
 }
@@ -39,4 +39,5 @@ h1 {
   height: 100%;
   position: absolute;
   left: 0;
+  /* padding-bottom: 10%; */
 }

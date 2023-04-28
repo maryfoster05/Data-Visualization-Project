@@ -1,16 +1,23 @@
 
 class Money {
-    constructor(x, y, end) {
+    constructor(x, y, end, gender) {
       this.x = x;
       this.y = y;
       this.end = end;
       this.isFalling = true;
+      this.gender = gender;
     }
   
     display() {
       imageMode(CENTER);
-      image(billM, this.x, this.y, 100, 50);
+      if (this.gender == 'mens'){
+        image(billM, this.x, this.y, 100, 50);
+      }
+      else{
+        image(billF, this.x, this.y, 100, 50);
+      }
     }
+
   
     update() {
       if (this.isFalling) {
