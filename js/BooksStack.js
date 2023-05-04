@@ -1,7 +1,7 @@
 class BooksStack extends MoneyStack {
 
-    constructor(x, y, num, gender) {
-      super(x, y, num, gender)
+    constructor(x, y,  money, divisor, gender) {
+      super(x, y,  money, divisor, gender)
       this.books = [];
     }
   
@@ -14,7 +14,7 @@ class BooksStack extends MoneyStack {
     update() {
       if (frameCount % 10 == 0) {
         if (this.books.length < this.num) {
-          this.books.push(new Books(this.x, this.y, height - this.books.length * 2, this.gender));
+          this.books.push(new Books(this.x, this.y, height - this.books.length * 2 - 30, this.gender));
         }
       }
       for (const b of this.books) {

@@ -10,21 +10,6 @@ h1 {
   text-align: center;
 }
 
-#x2019 {
-  text-indent: 90px;
-}
-
-#x2020{
-  /* text-align-last: right; */
-  text-indent: 190px;
-}
-
-#x2021{
-  /* text-align-last: right; */
-  text-indent: 300px;
-}
-
-
 
 /* for auto resizing p5 */
 #myP5-container {

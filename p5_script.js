@@ -8,6 +8,8 @@ let phoneStacks = [];
 let booksStack;
 let booksStacks = [];
 let currentComparison = "Salary Comparison";
+let yMax = 0;
+
 
 function preload() {
   table = loadTable("data/final_category_by_year_df.csv", 'csv', 'header');
@@ -28,17 +30,21 @@ function setup() {
     let mens  = table.getColumn(1)[i];
     let womens  = table.getColumn(2)[i];
 
-    moneyStacks.push(new MoneyStack(i * 200 + 70, 0, mens/20000, "mens"));
-    moneyStacks.push(new MoneyStack(i * 200 + 160, 0, womens/20000, "womens"));
+    moneyStacks.push(new MoneyStack(i * width/4 + 100, 20, mens, 10000, "mens"));
+    moneyStacks.push(new MoneyStack(i * width/4 + 200, 20, womens, 10000, "womens"));
+    console.log(round(mens/10000));
+    console.log(round(womens/10000));
   }
+
 
   // Recruiting Expenses Comparison
   for (let i = 0; i < 3; i++) {
     let mens  = table.getColumn(3)[i];
     let womens  = table.getColumn(4)[i];
 
-    phoneStacks.push(new PhoneStack(i * 200 + 70, 0, mens/20000, "mens"));
-    phoneStacks.push(new PhoneStack(i * 200 + 160, 0, womens/20000, "womens"));
+    phoneStacks.push(new PhoneStack(i * width/4 + 100, 0, mens, 10000, "mens"));
+    phoneStacks.push(new PhoneStack(i * width/4 + 200, 0, womens, 10000, "womens"));
+    
   }
 
   // Aid Comparison
@@ -46,8 +52,8 @@ function setup() {
     let mens  = table.getColumn(5)[i];
     let womens  = table.getColumn(6)[i];
 
-    booksStacks.push(new BooksStack(i * 200 + 70, 0, mens/100000, "mens"));
-    booksStacks.push(new BooksStack(i * 200 + 160, 0, womens/100000, "womens"));
+    booksStacks.push(new BooksStack(i * width/4 + 100, 0,  mens, 100000, "mens"));
+    booksStacks.push(new BooksStack(i * width/4 + 200, 0, womens, 100000, "womens"));
   }
   
   initializeSelection();
@@ -57,9 +63,45 @@ function setup() {
 function draw() {
   background('white');
   mySelectEvent();
-  // xAxis();
-  // yAxis();
-  
+  xAxis();
+  yAxis();
+  yVal();
+}
+
+function xAxis(){
+  for (let i = 0; i < 3; i++){
+    textSize(18)
+    fill(0);
+    textAlign(CENTER);
+    text(2019 + i, i * width/4 + 150 + i * 25, height - 30);
+  }
+  textSize(20);
+  text('Date (by Year)', width/4 + 175, height - 5);
+  }
+
+function yAxis(){
+  if (currentComparison == "Salary Comparison" || currentComparison == "Recruiting Expenses Comparison") {
+    textSize(20);
+    // rotate(90);
+    text("Money spent (in $10,000s)", 300 , height - 50);
+  }
+
+  else{
+    textSize(20);
+    text("Money spent (in $100,000s)", 300 , height - 50);
+  }
+
+  // for (let y = 0; y < yMax; y += 1000) {
+
+  // }
+}
+
+function yVal() {
+  let y =  map(mouseY, 0, height, 100, 0);
+
+  fill(0);
+  text(round(y), mouseX, mouseY);
+  line(0, mouseY, width, mouseY);
 }
 
 function salaryComparison(){
@@ -112,6 +154,8 @@ function mySelectEvent() {
      aidComparison()
   } 
 }
+
+
 
 // Chat GPT
 function windowResized() {

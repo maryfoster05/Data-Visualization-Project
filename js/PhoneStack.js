@@ -1,7 +1,7 @@
 class PhoneStack extends MoneyStack {
 
-    constructor(x, y, num, gender) {
-      super(x, y, num, gender);
+  constructor(x, y, money, divisor, gender) {
+      super(x, y, money, divisor, gender);
       this.phone = [];
     }
   
@@ -14,7 +14,7 @@ class PhoneStack extends MoneyStack {
     update() {
       if (frameCount % 10 == 0) {
         if (this.phone.length < this.num) {
-          this.phone.push(new Phone(this.x, this.y, height - this.phone.length * 2,this.gender));
+          this.phone.push(new Phone(this.x, this.y, height - this.phone.length * 2 - 30, this.gender));
         }
       }
       for (const p of this.phone) {

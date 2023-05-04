@@ -17,13 +17,12 @@ class Money {
         image(billF, this.x, this.y, 100, 50);
       }
     }
-
   
     update() {
       if (this.isFalling) {
         this.y++;
-        if (this.y > this.end- 20) {
-          this.y = this.end- 20;
+        if (this.y > this.end - 40) {
+          this.y = this.end - 40;
           this.isFalling = false;
         }
       }
