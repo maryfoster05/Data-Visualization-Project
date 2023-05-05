@@ -18,7 +18,7 @@ class MoneyStack {
     update() {
       if (frameCount % 10 == 0) {
         if (this.money.length < this.num) {
-          this.money.push(new Money(this.x, this.y, height - this.money.length * 2 - 30, this.gender));
+          this.money.push(new Money(this.x, this.y, chart.y + chart.h - this.money.length * 2, this.gender));
         }
       }
       for (const m of this.money) {

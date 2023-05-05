@@ -5,7 +5,6 @@ class Phone extends Money {
     }
   
     display() {
-      imageMode(CENTER);
       if (this.gender == 'mens'){
         image(phoneM, this.x, this.y, 100, 50);
       }

@@ -8,7 +8,7 @@ let phoneStacks = [];
 let booksStack;
 let booksStacks = [];
 let currentComparison = "Salary Comparison";
-let yMax = 0;
+let chart = new Chart(100, 30, 800, 375);
 
 
 function preload() {
@@ -22,20 +22,20 @@ function preload() {
 }
 
 function setup() {
-  cnv = createCanvas(windowWidth, 400);
+  cnv = createCanvas(windowWidth, 700);
   cnv.parent("myP5");
+  chart.w = width;
 
   // Salary Comparison
   for (let i = 0; i < 3; i++) {
     let mens  = table.getColumn(1)[i];
     let womens  = table.getColumn(2)[i];
 
-    moneyStacks.push(new MoneyStack(i * width/4 + 100, 20, mens, 10000, "mens"));
-    moneyStacks.push(new MoneyStack(i * width/4 + 200, 20, womens, 10000, "womens"));
+    moneyStacks.push(new MoneyStack(i * width/4 + chart.x, chart.y, mens, 10000, "mens"));
+    moneyStacks.push(new MoneyStack(i * width/4 + chart.x+100, chart.y, womens, 10000, "womens"));
     console.log(round(mens/10000));
     console.log(round(womens/10000));
   }
-
 
   // Recruiting Expenses Comparison
   for (let i = 0; i < 3; i++) {
@@ -62,46 +62,10 @@ function setup() {
 
 function draw() {
   background('white');
+
+  chart.displayBackground();
   mySelectEvent();
-  xAxis();
-  yAxis();
-  yVal();
-}
-
-function xAxis(){
-  for (let i = 0; i < 3; i++){
-    textSize(18)
-    fill(0);
-    textAlign(CENTER);
-    text(2019 + i, i * width/4 + 150 + i * 25, height - 30);
-  }
-  textSize(20);
-  text('Date (by Year)', width/4 + 175, height - 5);
-  }
-
-function yAxis(){
-  if (currentComparison == "Salary Comparison" || currentComparison == "Recruiting Expenses Comparison") {
-    textSize(20);
-    // rotate(90);
-    text("Money spent (in $10,000s)", 300 , height - 50);
-  }
-
-  else{
-    textSize(20);
-    text("Money spent (in $100,000s)", 300 , height - 50);
-  }
-
-  // for (let y = 0; y < yMax; y += 1000) {
-
-  // }
-}
-
-function yVal() {
-  let y =  map(mouseY, 0, height, 100, 0);
-
-  fill(0);
-  text(round(y), mouseX, mouseY);
-  line(0, mouseY, width, mouseY);
+  chart.displayAxes();
 }
 
 function salaryComparison(){
@@ -154,8 +118,6 @@ function mySelectEvent() {
      aidComparison()
   } 
 }
-
-
 
 // Chat GPT
 function windowResized() {
