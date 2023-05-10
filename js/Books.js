@@ -5,7 +5,6 @@ class Books extends Money {
     }
   
     display() {
-      // imageMode(CENTER);
       if (this.gender == 'mens'){     
         image(bookM, this.x, this.y, 100, 50);
       }

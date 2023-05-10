@@ -8,7 +8,9 @@ let phoneStacks = [];
 let booksStack;
 let booksStacks = [];
 let currentComparison = "Salary Comparison";
-let chart = new Chart(100, 30, 800, 375);
+let chart = new Chart(100, 30, 600, 375);
+let dx = 10;
+let dw = (chart.w - 600 - (2 * dx)) / 2;
 
 
 function preload() {
@@ -22,19 +24,18 @@ function preload() {
 }
 
 function setup() {
-  cnv = createCanvas(windowWidth, 700);
+  cnv = createCanvas(windowWidth, 500);
   cnv.parent("myP5");
-  chart.w = width;
+  chart.w = width - chart.x;
+  dw = (chart.w - 600 - (2 * dx)) / 4;
 
   // Salary Comparison
   for (let i = 0; i < 3; i++) {
     let mens  = table.getColumn(1)[i];
     let womens  = table.getColumn(2)[i];
 
-    moneyStacks.push(new MoneyStack(i * width/4 + chart.x, chart.y, mens, 10000, "mens"));
-    moneyStacks.push(new MoneyStack(i * width/4 + chart.x+100, chart.y, womens, 10000, "womens"));
-    console.log(round(mens/10000));
-    console.log(round(womens/10000));
+    moneyStacks.push(new MoneyStack(chart.x + dx + 200*i + dw*i, chart.y, mens, 10000, "mens"));
+    moneyStacks.push(new MoneyStack(chart.x + dx + 200*i + dw*i + 100, chart.y, womens, 10000, "womens"));
   }
 
   // Recruiting Expenses Comparison
@@ -42,8 +43,8 @@ function setup() {
     let mens  = table.getColumn(3)[i];
     let womens  = table.getColumn(4)[i];
 
-    phoneStacks.push(new PhoneStack(i * width/4 + 100, 0, mens, 10000, "mens"));
-    phoneStacks.push(new PhoneStack(i * width/4 + 200, 0, womens, 10000, "womens"));
+    phoneStacks.push(new PhoneStack(chart.x + dx + 200*i + dw*i , 0, mens, 10000, "mens"));
+    phoneStacks.push(new PhoneStack(chart.x + dx + 200*i + dw*i + 90, 0, womens, 10000, "womens"));
     
   }
 
@@ -52,8 +53,8 @@ function setup() {
     let mens  = table.getColumn(5)[i];
     let womens  = table.getColumn(6)[i];
 
-    booksStacks.push(new BooksStack(i * width/4 + 100, 0,  mens, 100000, "mens"));
-    booksStacks.push(new BooksStack(i * width/4 + 200, 0, womens, 100000, "womens"));
+    booksStacks.push(new BooksStack(chart.x + dx + 200*i + dw*i, 0,  mens, 100000, "mens"));
+    booksStacks.push(new BooksStack(chart.x + dx + 200*i + dw*i + 100, 0, womens, 100000, "womens"));
   }
   
   initializeSelection();
@@ -66,6 +67,7 @@ function draw() {
   chart.displayBackground();
   mySelectEvent();
   chart.displayAxes();
+  // paragraph.textBlocks();
 }
 
 function salaryComparison(){
@@ -108,14 +110,25 @@ function initializeSelection() {
 function mySelectEvent() {
   currentComparison = sel.value();
 
+  let rec = select("#recruiting");
+  rec.style("display", "none");
+  let sal = select("#salary");
+  sal.style("display", "none");
+  let aid = select("#aid");
+  aid.style("display", "none");
+
   if (currentComparison == "Salary Comparison") {
     salaryComparison()
+    sal.style("display", "block");
   }
   else if (currentComparison == "Recruiting Expenses Comparison") {
     recruitingComparison()
+    rec.style("display", "block");
   }
   else {
      aidComparison()
+      aid.style("display", "block");
+
   } 
 }
 
@@ -124,6 +137,6 @@ function windowResized() {
   // When the window is resized, get the new dimensions of the parent div
   let canvasContainer = select("#myP5");
   let cW = canvasContainer.width;
-  let cH = canvasContainer.height;
+  let cH = 500;
   resizeCanvas(cW, cH);
 }

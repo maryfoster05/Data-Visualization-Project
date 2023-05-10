@@ -4,63 +4,86 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Comparison of Equity in Power 5 Universities</title>
+  <title>Comparison of Equity in Power 5 Conference Universities</title>
 
   <!--   p5.js lib -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
-
-  <!--     bootstrap style -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-
   <!--   your style -->
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <header>
-        <!-- NAVBAR -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Link1</a>
-          <a class="nav-item nav-link" href="#">Link2</a>
-        </div>
-      </div>
-    </nav> -->
-    <!--     END NAVBAR -->
-  </header>
   <main role="main" class="container">
     <h1>Comparison of Equity in Sports Categories in Power 5 Universities</h1>
 
     <!--     P5 VISUAL -->
-    <p>Select a category in the dropdown menu to see a bar chart comparing the amount of money given to Mens teams and Womens teams in each category in 2019, 2020, 2021. </p>
+    <p>
+      Title IX was passed in 1973 to protect women from facing inequalities, specifically in 
+      the sports setting. This website is a quick way to show how even after 50 years, there 
+      are still many disparities by looking specifically at the universities within the Power 5 
+      Conferences. The Power 5 Conferences consist of the Big Ten, the Big 12, the Pac-12, the 
+      SEC, and finally, the ACC. These 5 Conferences consist of 64 schools. This data was retrived 
+      from the US Department of Education and their Equity in Athletics Data Analysis.
+
+    </p>
+     <p> 
+      Select a category in the dropdown menu to see a bar chart comparing the amount of money 
+      spent on Men's teams and Women's teams in three categories: Salary, Recruiting Expenses, 
+      and Student Aid expenses, spanning from 2019-2021.
+    </p>
     <div id="dataDropdown"></div>
     <div id="myP5-container">
       <div id="myP5"></div>
     </div>
+    <p id="salary"> 
+      Although technically, Title IX encompasses coaches, it is clear by this bar chart that 
+      the Power 5 Universities don't spend the same amount of money on their men's and women's 
+      teams. While this may be hard to hear and look at, men's sports are more watched and
+      supported. This can support, in one sense, why these disparities are so high. If the coaches
+      on the men's teams are under more pressure, the question of whether they should get paid more arises.
+      As we can see, this is currently true and doesn't seem to be changing because the average difference
+      in salary between the head coaches is slowly rising each year.
+
+      To put this chart into perspective, in 2019, the average difference in salary was $930,201; 
+      in 2020, the average difference grew slightly to $936,918, and finally, in 2021, the biggest 
+      difference was shown, with the gap being $1,063,251.
+      
+      
+    </p>
+    <p id="recruiting">
+      This bar chart has the most obvious change during the three-year period. In 2020 we can see a 
+      significant drop in money spent on recruiting for both genders. This drop coincides with the 
+      COVID-19 lockdown and the halt of college sports. Although the disparities shrank during this
+      year, the Power 5 Conferences immediately went back to their older ways. The differences went 
+      from $801,840 in 2019 to $293,249 in 2020, and in 2021 this number was more than quadrupled
+      to $1,330,416.
+
+    </p>
+    <p id="aid">
+
+      The average difference, like the salary portion, has steadily increased from $1,640,968 
+      in 2019 to $1,658,784 in 2020 and finally to $1,689,839 in 2021. 
+
+      This data may look like the disparities in the Power 5 Conferences are high, but according to 
+      the US Department of Education, "In determining whether a school is providing equal opportunity 
+      based on sex in athletic scholarships and financial assistance, OCR considers whether the total 
+      amount of athletic scholarship aid a school makes available to men and women is in proportion to 
+      their participation rates." This puts the average differences in money spent seem less serious. 
+      While Title IX is not being completely followed, this graph shows how quickly the difference can 
+      be turned into something negative, when in reality, it is following the law. 
+    </p>
   </main>
 
   <!--   SCRIPTS -->
-  
+  <script src="js/Chart.js"></script>
   <script src="js/Money.js"></script>
   <script src="js/MoneyStack.js"></script>
   <script src="js/Books.js"></script>
   <script src="js/BooksStack.js"></script>
   <script src="js/Phone.js"></script>
   <script src="js/PhoneStack.js"></script>
-  <script src="js/Chart.js"></script>
   <script src="p5_script.js"></script>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script> -->
 </body>
 
 </html>
