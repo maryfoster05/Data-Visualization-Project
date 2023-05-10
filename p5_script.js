@@ -137,6 +137,6 @@ function windowResized() {
   // When the window is resized, get the new dimensions of the parent div
   let canvasContainer = select("#myP5");
   let cW = canvasContainer.width;
-  let cH = 500;
+  let cH = 450;
   resizeCanvas(cW, cH);
 }
