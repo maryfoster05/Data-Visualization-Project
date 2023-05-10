@@ -103,7 +103,7 @@ function initializeSelection() {
   sel.parent("dataDropdown");
   sel.option('Salary Comparison');
   sel.option('Recruiting Expenses Comparison');
-  sel.option('Student Aid Comparion');
+  sel.option('Student Aid Comparison');
   sel.changed(mySelectEvent);
 }
 
